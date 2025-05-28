@@ -1,4 +1,4 @@
-![MyDocker Banner](./mydocker_banner.png)
+![MyDocker Banner](./mydocker_docs/mydocker_banner.png)
 
 # 🐳 MyDocker
 
@@ -24,7 +24,7 @@
 
 ## 🎯 Architecture
 
-![Diagram](./diagram.jpg)
+![Diagram](./mydocker_docs/diagram.jpg)
 
 ## 📦 Installation
 
@@ -115,6 +115,12 @@ mydocker/
 
 > Here's a demonstration of running a container and executing commands in it:
 > [https://github.com/ravikisha/mydocker](https://github.com/ravikisha/mydocker)
+
+> Pull and Run the Image (`pull` and `run` commands)
+> ![Pull and Run](./mydocker_docs/run.png)
+
+> Check the Running Containers (`ps` command)
+> ![Running Containers](./mydocker_docs/ps.png)
 
 ---
 
