@@ -570,7 +570,8 @@ func listContainers() ([]ContainerInfo, error) {
 		return nil, fmt.Errorf("failed to read containers directory: %v", err)
 	}
 
-	fmt.Printf("CONTAINER ID\tPID\tIMAGE\tSTATUS\n")
+	// fmt.Printf("CONTAINER ID\tPID\tIMAGE\tSTATUS\n")
+	fmt.Printf("%-40s %-20s %-20s %-15s\n", "CONTAINER ID", "PID", "IMAGE", "STATUS")
 	var containers []ContainerInfo
 	for _, file := range files {
 		if !file.IsDir() {
@@ -590,7 +591,6 @@ func listContainers() ([]ContainerInfo, error) {
 			continue
 		}
 
-		info.PID = -1 // Default PID if not found
 		if procFile, err := os.ReadFile(filepath.Join("/proc", strconv.Itoa(info.PID), "status")); err == nil {
 			lines := strings.Split(string(procFile), "\n")
 			for _, line := range lines {
@@ -603,7 +603,8 @@ func listContainers() ([]ContainerInfo, error) {
 			}
 		}
 
-		fmt.Printf("%s\t%d\t%s\t%s\n", info.ID[:12], info.PID, info.Image, "running") // Simplified status
+		// fmt.Printf("%s\t%d\t%s\t%s\n", info.ID[:12], info.PID, info.Image, "running") // Simplified status
+		fmt.Printf("%-40s %-20d %-20s %-15s\n", info.ID, info.PID, info.Image, "running")
 		containers = append(containers, info)
 	}
 	return containers, nil
